@@ -7,7 +7,7 @@
     <document class="document1" @result="sendResult" @to-end="toEnd"></document>
     <result class="result" :resultFrom="result" />
     <button class="back-btn" @click="$emit('back-to-info')">
-  חזרה לפרטים
+  חזרה לפרטים 
 </button>
   </div>
 </template>
