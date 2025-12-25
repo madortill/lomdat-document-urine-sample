@@ -22,13 +22,18 @@
       /> -->
 
 
-<info-carousel :activeIndex="activeIndex"   @update:activeIndex="activeIndex = $event"></info-carousel>
+      <info-carousel
+  :activeIndex="activeIndex"
+  @update:activeIndex="activeIndex = $event"
+  @length="slidesLength = $event"
+>
+</info-carousel>
 
       
       <button 
   class="continue-btn" 
-  :class="{ unable: !showBtn }" 
-  :disabled="!showBtn" 
+  :class="{ unable: !isFinished }" 
+  :disabled="!isFinished"
   @click="toDoc"
 >
   הבא
@@ -80,6 +85,11 @@ export default {
       this.showBtn = true;
     }, totalDelay * 1000); // הופך לשניות
   },
+  computed: {
+  isFinished() {
+    return this.activeIndex === this.slidesLength - 1;
+  }
+},
   methods: {
     toDoc() {
       this.showDoc = true;

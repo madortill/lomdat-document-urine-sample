@@ -49,6 +49,7 @@ export default {
   emits: ["update:activeIndex"],
   data() {
     return {
+      emits: ["update:activeIndex", "length"],
       info: [
         'חשוד – רב\"ט לירון אסולין מ.א - 9543874 ת.ז- 256333791, מאבטח מתקנים בבא"ף 8223\n\
 חשדות – סחר בסמים מסוכנים, שימוש והחזקה בסמים מסוכנים\n\
@@ -62,6 +63,9 @@ export default {
       ],
     };
   },
+  mounted() {
+  this.$emit("length", this.info.length);
+},
   computed: {
     isFirst() {
       return this.activeIndex === 0;
